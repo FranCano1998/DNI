@@ -11,11 +11,17 @@ package com.mycompany.dni;
 public class DNI {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        /*System.out.println("Hello World!");
         int numeroDni = 31002739;  // Aquí va el número del DNI
         char letra = obtenerLetraDni(numeroDni);
         System.out.println("La letra correspondiente al DNI " + numeroDni + " es: " + letra);
+        */
+        String numeroDni = "31002739G";
+        boolean resultado = DNI.validarDNI(numeroDni);
+        System.out.println(resultado);
+        
     }
+
 
 
 
@@ -31,7 +37,18 @@ public class DNI {
         // Retornamos la letra correspondiente según el resto
         return letras[resto];
     }
-   
+   public static boolean validarDNI(String dni){
+       String numero = dni.substring(0, 8);
+       char letra = dni.charAt(8);
+       int numeroDNI = Integer.parseInt(numero);
+       char letraCalculada = DNI.obtenerLetraDni(numeroDNI);
+       if (letraCalculada == letra){
+           return true;
+       }else{
+           return false;
+       }
+       
+   }
         
     
 
